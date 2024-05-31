@@ -25,6 +25,8 @@ function keyPressed() {
     effectColor = [0, 255, 255, 90]; //Cyan
   } else if (key === 'z' || key === 'Z') {
     effectColor = [255, 0, 255, 90]; //Magenta
+  } else if (key === 'o' || key === 'O'){
+    effectColor = [0, 0, 0, 90]; //Navyblue
   }
   redraw();
 }
