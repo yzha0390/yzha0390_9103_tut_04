@@ -6,6 +6,11 @@ function setup() {
 
 let effectColor = [255, 255, 200, 90];
 
+function windowResized() {
+  resizeCanvas(600, 800);
+  redraw();
+}
+
 function keyPressed() {
   if (key === 'r' || key === 'R') {    
     effectColor = [255, 0, 0, 90];//Red
@@ -22,7 +27,6 @@ function keyPressed() {
   }
   redraw();
 }
-
 
 function draw() {
   stroke(effectColor[0], effectColor[1], effectColor[2], 90);
@@ -292,5 +296,5 @@ rect(20,20,600,40);
   noFill();
   stroke(148, 200, 200); 
   strokeWeight(70); 
-  rect(0, 0, 600, 800);
+  rect(0, 0, width, height);
 }  
