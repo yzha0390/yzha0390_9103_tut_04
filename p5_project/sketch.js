@@ -1,10 +1,11 @@
 //Setting up a canvas with similar proportions to the original
 function setup() {
-  createCanvas(600, 800);//Ensure that the draw function is run only once
-  noLoop();
+  createCanvas(600, 800); //Ensure that the draw function is run only once
+  noLoop(); 
 }
 
 let effectColor = [255, 255, 200, 90];
+let borderColor = [148, 200, 200]; 
 
 function windowResized() {
   resizeCanvas(600, 800);
@@ -13,19 +14,26 @@ function windowResized() {
 
 function keyPressed() {
   if (key === 'r' || key === 'R') {    
-    effectColor = [255, 0, 0, 90];//Red
+    effectColor = [255, 0, 0, 90]; //Red
   } else if (key === 'g' || key === 'G') {
-    effectColor = [0, 255, 0, 90];//Green
+    effectColor = [0, 255, 0, 90]; //Green
   } else if (key === 'b' || key === 'B') {
-    effectColor = [0, 0, 255, 90];//Blue
+    effectColor = [0, 0, 255, 90]; //Blue
   } else if (key === 'x' || key === 'X') {
-    effectColor = [255, 255, 0, 90];//Yellow
+    effectColor = [255, 255, 0, 90]; //Yellow
   } else if (key === 'y' || key === 'Y') {
-    effectColor = [0, 255, 255, 90];//Cyan
+    effectColor = [0, 255, 255, 90]; //Cyan
   } else if (key === 'z' || key === 'Z') {
-    effectColor = [255, 0, 255, 90];//Magenta
+    effectColor = [255, 0, 255, 90]; //Magenta
   }
   redraw();
+}
+
+function mouseClicked() {
+  if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {
+    borderColor = [random(255), random(255), random(255)];
+    redraw();
+  }
 }
 
 function draw() {
@@ -43,12 +51,12 @@ function draw() {
     let x2 = x + cos(angle) * length;
     let y2 = y + sin(angle) * length;
    
-    // Set the stroke color with transparency
+
+  // Set the stroke color with transparency
     strokeWeight(1);
     line(x, y, x2, y2);
   }
   
-//Use a rectangle to draw the plane below and something that looks like a flowerpot
   fill(92, 173, 123); 
   stroke(0); 
   strokeWeight(5); 
