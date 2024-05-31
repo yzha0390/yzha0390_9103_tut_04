@@ -4,7 +4,29 @@ function setup() {
   noLoop();
 }
 
+let effectColor = [255, 255, 200, 90];
+
+function keyPressed() {
+  if (key === 'r' || key === 'R') {    
+    effectColor = [255, 0, 0, 90];//Red
+  } else if (key === 'g' || key === 'G') {
+    effectColor = [0, 255, 0, 90];//Green
+  } else if (key === 'b' || key === 'B') {
+    effectColor = [0, 0, 255, 90];//Blue
+  } else if (key === 'x' || key === 'X') {
+    effectColor = [255, 255, 0, 90];//Yellow
+  } else if (key === 'y' || key === 'Y') {
+    effectColor = [0, 255, 255, 90];//Cyan
+  } else if (key === 'z' || key === 'Z') {
+    effectColor = [255, 0, 255, 90];//Magenta
+  }
+  redraw();
+}
+
+
 function draw() {
+  stroke(effectColor[0], effectColor[1], effectColor[2], 90);
+
   // Create a black background
   background(0);
 
@@ -18,11 +40,10 @@ function draw() {
     let y2 = y + sin(angle) * length;
    
     // Set the stroke color with transparency
-    stroke(255, 255, 200, 90); 
     strokeWeight(1);
     line(x, y, x2, y2);
   }
-
+  
 //Use a rectangle to draw the plane below and something that looks like a flowerpot
   fill(92, 173, 123); 
   stroke(0); 
